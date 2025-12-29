@@ -1,0 +1,2 @@
+export { WhyUs } from "./why-us"
+
