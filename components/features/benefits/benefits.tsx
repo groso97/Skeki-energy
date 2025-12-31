@@ -3,9 +3,47 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BENEFITS } from "@/config/constants"
 import { useScrollBlur } from "@/hooks/use-scroll-blur"
-import { use3DTilt } from "@/hooks/use-3d-tilt"
 import { SectionBadge } from "@/components/shared/section-badge"
 import { cn } from "@/lib/utils"
+import { LucideIcon } from "lucide-react"
+
+interface BenefitCardProps {
+  icon: LucideIcon
+  title: string
+  description: string
+}
+
+const BenefitCard = ({ icon: Icon, title, description }: BenefitCardProps) => {
+  return (
+    <div className="relative group h-full">
+      {/* Glow effect behind card */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#2371A2]/0 via-[#2371A2]/20 to-[#E0BF18]/0 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+      
+      <Card className="relative border-2 border-[#FFFFFC]/10 bg-[#020202]/95 backdrop-blur-sm hover:border-[#2371A2]/60 transition-all duration-500 h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#2371A2]/20">
+        <CardHeader>
+          {/* Icon with glow */}
+          <div className="mb-4 relative">
+            <div className="absolute -inset-2 bg-[#2371A2]/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-[#2371A2]/20 to-[#2371A2]/5 border border-[#2371A2]/30 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <Icon className="h-6 w-6 text-[#2371A2] group-hover:text-[#E0BF18] transition-colors duration-500" />
+            </div>
+          </div>
+          <CardTitle className="text-xl text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-[#FFFFFC]/70 leading-relaxed group-hover:text-[#FFFFFC] transition-colors duration-500">
+            {description}
+          </p>
+        </CardContent>
+        
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#2371A2]/0 via-transparent to-[#E0BF18]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      </Card>
+    </div>
+  )
+}
 
 export const Benefits = () => {
   const { sectionRef, isBlurred } = useScrollBlur()
@@ -40,46 +78,15 @@ export const Benefits = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BENEFITS.map((benefit, index) => {
-            const Icon = benefit.icon
-            const { elementRef, transform } = use3DTilt({ maxRotation: 8 })
-            return (
-              <div
-                key={index}
-                ref={elementRef}
-                className="ar-vr-card-wrapper"
-                style={{
-                  transform: transform,
-                  transformStyle: "preserve-3d",
-                  transition: "transform 0.1s ease-out",
-                }}
-              >
-                <Card
-                  className="border-2 border-[#FFFFFC]/10 bg-[#020202] hover:border-[#2371A2]/50 transition-all duration-500 group ar-vr-card relative h-full"
-                  style={{
-                    animationDelay: `${index * 0.1}s`,
-                  }}
-                >
-                <CardHeader>
-                  <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center mb-4 group-hover:bg-[#2371A2]/20 group-hover:border-[#2371A2]/40 group-hover:scale-110 transition-all duration-500 ar-vr-icon">
-                    <Icon className="h-5 w-5 text-[#2371A2] group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <CardTitle className="text-xl text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
-                    {benefit.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-[#FFFFFC]/70 leading-relaxed group-hover:text-[#FFFFFC]/90 transition-colors duration-300">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-                  {/* 3D depth effect */}
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/0 via-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                </Card>
-              </div>
-            )
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-4">
+          {BENEFITS.map((benefit, index) => (
+            <BenefitCard
+              key={index}
+              icon={benefit.icon}
+              title={benefit.title}
+              description={benefit.description}
+            />
+          ))}
         </div>
       </div>
     </section>

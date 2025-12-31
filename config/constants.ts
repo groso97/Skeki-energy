@@ -248,16 +248,10 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Split",
   },
   {
-    quote: "Najbolja investicija koju smo napravili. Ne samo što štedimo novac, već i znamo da doprinosimo zaštiti okoliša.",
-    author: "Ivan Petrović",
-    company: "Vlasnik vikendice",
-    role: "Istra",
-  },
-  {
-    quote: "Solarni sustav je premašio naša očekivanja. Monitoring sustav omogućava nam da pratimo proizvodnju u realnom vremenu.",
-    author: "Petra Novak",
-    company: "Vlasnica poljoprivrednog gospodarstva",
-    role: "Slavonija",
+    quote: "Najbolja odluka koju smo donijeli za našu tvrtku. Solarni paneli su nam smanjili operativne troškove i pokazali našu predanost održivosti.",
+    author: "Ivan Kovačević",
+    company: "Direktor proizvodnje",
+    role: "Rijeka",
   },
 ]
 

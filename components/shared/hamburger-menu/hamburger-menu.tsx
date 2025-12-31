@@ -1,40 +1,43 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { X } from "lucide-react"
 
 interface HamburgerMenuProps {
-  isOpen: boolean
+  isOpen?: boolean
+  variant?: "hamburger" | "close"
   className?: string
 }
 
-export const HamburgerMenu = ({ isOpen, className }: HamburgerMenuProps) => {
+export const HamburgerMenu = ({ isOpen = false, variant, className }: HamburgerMenuProps) => {
+  // If variant is explicitly set, use that, otherwise use isOpen state
+  const showAsX = variant === "close" || (variant !== "hamburger" && isOpen)
+
+  if (showAsX) {
+    // X icon
+    return (
+      <div 
+        className={cn(
+          "relative flex items-center justify-center", 
+          className
+        )}
+      >
+        <X className="h-6 w-6 text-current" />
+      </div>
+    )
+  }
+
+  // Hamburger icon (3 lines)
   return (
-    <div className={cn("relative w-6 h-6 flex items-center justify-center", className)}>
-      {/* Top line */}
-      <span
-        className={cn(
-          "absolute left-0 w-full h-0.5 bg-current transition-all duration-500 ease-in-out origin-center",
-          isOpen
-            ? "top-1/2 rotate-45 -translate-y-1/2 delay-150"
-            : "top-0 rotate-0 translate-y-0"
-        )}
-      />
-      {/* Middle line */}
-      <span
-        className={cn(
-          "absolute top-1/2 left-0 w-full h-0.5 bg-current -translate-y-1/2 transition-all duration-300 ease-in-out",
-          isOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100"
-        )}
-      />
-      {/* Bottom line */}
-      <span
-        className={cn(
-          "absolute left-0 w-full h-0.5 bg-current transition-all duration-500 ease-in-out origin-center",
-          isOpen
-            ? "bottom-1/2 -rotate-45 translate-y-1/2 delay-150"
-            : "bottom-0 rotate-0 translate-y-0"
-        )}
-      />
+    <div 
+      className={cn(
+        "relative w-6 h-5 flex flex-col justify-between", 
+        className
+      )}
+    >
+      <span className="w-full h-0.5 rounded-full bg-current" />
+      <span className="w-full h-0.5 rounded-full bg-current" />
+      <span className="w-full h-0.5 rounded-full bg-current" />
     </div>
   )
 }

@@ -1,24 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export const Hero = () => {
-  const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string; duration: string }>>([])
-
-  useEffect(() => {
-    // Generate particles only on client to avoid hydration mismatch
-    // Reduced to 12 for better performance
-    setParticles(
-      Array.from({ length: 12 }).map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        delay: `${Math.random() * 4}s`,
-        duration: `${4 + Math.random() * 4}s`,
-      }))
-    )
-  }, [])
   const handleContactClick = () => {
     const contactSection = document.getElementById("kontakt")
     if (contactSection) {
@@ -37,22 +22,6 @@ export const Hero = () => {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#020202]">
       {/* Dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#020202] via-[#020202] to-[#000000]" />
-      
-      {/* Subtle yellow particles in background */}
-      <div className="absolute inset-0">
-        {particles.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-[#E0BF18]/40 rounded-full animate-float-particles"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              animationDelay: particle.delay,
-              animationDuration: particle.duration,
-            }}
-          />
-        ))}
-      </div>
       
       {/* Subtle floating orbs - optimized with will-change */}
       <div className="absolute top-20 left-10 w-96 h-96 bg-[#E0BF18]/10 rounded-full blur-3xl animate-float-slow opacity-50 will-change-transform" />

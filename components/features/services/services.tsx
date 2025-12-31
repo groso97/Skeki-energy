@@ -1,8 +1,8 @@
 "use client"
 
+import { Card, CardContent } from "@/components/ui/card"
 import { SERVICES } from "@/config/constants"
 import { useScrollBlur } from "@/hooks/use-scroll-blur"
-import { use3DTilt } from "@/hooks/use-3d-tilt"
 import { SectionBadge } from "@/components/shared/section-badge"
 import { cn } from "@/lib/utils"
 
@@ -42,29 +42,25 @@ export const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {SERVICES.map((service, index) => {
             const Icon = service.icon
-            const { elementRef, transform } = use3DTilt({ maxRotation: 5 })
             return (
-              <div
-                key={index}
-                ref={elementRef}
-                className="ar-vr-card-wrapper"
-                style={{
-                  transform: transform,
-                  transformStyle: "preserve-3d",
-                  transition: "transform 0.1s ease-out",
-                }}
-              >
-                <div className="flex flex-col items-center text-center p-8 rounded-lg bg-[#020202] border-2 border-[#FFFFFC]/10 hover:border-[#2371A2]/50 transition-all duration-500 group ar-vr-feature-card relative h-full">
-                  <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center mb-6 group-hover:bg-[#2371A2]/20 group-hover:border-[#2371A2]/40 group-hover:scale-110 transition-all duration-500 ar-vr-icon-float">
-                    <Icon className="h-5 w-5 text-[#2371A2] group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-[#FFFFFC]/70 leading-relaxed group-hover:text-[#FFFFFC]/90 transition-colors duration-300">
-                    {service.description}
-                  </p>
-                </div>
+              <div key={index} className="relative">
+                <Card className="relative bg-[#020202] border-2 border-[#FFFFFC]/10 hover:border-[#2371A2]/50 hover:shadow-lg transition-all duration-500 group h-full">
+                  <CardContent className="pt-8 text-center">
+                    <div className="mb-4 flex justify-center">
+                      <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center group-hover:bg-[#2371A2]/20 group-hover:border-[#2371A2]/40 group-hover:scale-110 transition-all duration-500">
+                        <Icon className="h-5 w-5 text-[#2371A2] group-hover:scale-110 transition-transform duration-500" />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#FFFFFC]/70 leading-relaxed group-hover:text-[#FFFFFC]/90 transition-colors duration-300">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                  {/* 3D depth shadow */}
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary/0 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                </Card>
               </div>
             )
           })}

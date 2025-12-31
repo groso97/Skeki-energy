@@ -51,10 +51,13 @@ export const CTA = () => {
             <Button
               size="lg"
               onClick={handleContactClick}
-              className="text-lg px-8 py-6 bg-[#E0BF18] text-[#020202] hover:bg-[#E0BF18]/90 shadow-lg shadow-[#E0BF18]/30"
+              className="text-lg px-8 py-6 group bg-[#E0BF18] text-[#020202] hover:bg-[#E0BF18]/90 shadow-lg shadow-[#E0BF18]/30 hover:shadow-[#E0BF18]/50 transition-all relative overflow-hidden"
             >
-              Pošaljite upit
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <span className="relative z-10 flex items-center">
+                Pošaljite upit
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#FFD700] via-[#E0BF18] to-[#FFD700] opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
             </Button>
           </div>
         </div>

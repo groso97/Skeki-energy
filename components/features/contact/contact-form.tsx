@@ -211,80 +211,110 @@ export const ContactForm = () => {
           </div>
 
           {/* Right Column - Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider block"
-                >
-                  IME I PREZIME *
-                </label>
-                <Input
-                  id="name"
-                  placeholder="John Doe"
-                  value={formData.name}
-                  onChange={(e) => handleChange("name", e.target.value)}
-                  required
-                  className="bg-[#020202] border-2 border-[#2371A2]/30 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2]/50 focus:ring-0 h-12 rounded-lg transition-all duration-500 ease-in-out"
-                />
+          <div className="relative">
+            {/* Form card with glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#2371A2]/20 via-[#E0BF18]/10 to-[#2371A2]/20 rounded-2xl blur-xl opacity-50" />
+            
+            <div className="relative bg-[#020202]/80 backdrop-blur-sm border-2 border-[#FFFFFC]/10 rounded-2xl p-8">
+              {/* Form header */}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-[#FFFFFC] mb-2">Pošaljite upit</h3>
+                <p className="text-sm text-[#FFFFFC]/60">Ispunite formu i javit ćemo vam se što prije</p>
               </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider block"
-                >
-                  EMAIL ADRESA *
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  required
-                  className="bg-[#020202] border-2 border-[#2371A2]/30 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2]/50 focus:ring-0 h-12 rounded-lg transition-all duration-500 ease-in-out"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Name and Phone in a row on larger screens */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="space-y-2 group">
+                    <label
+                      htmlFor="name"
+                      className="text-xs font-semibold text-[#FFFFFC]/50 uppercase tracking-wider block group-focus-within:text-[#2371A2] transition-colors"
+                    >
+                      Ime i prezime *
+                    </label>
+                    <Input
+                      id="name"
+                      placeholder="Vaše ime"
+                      value={formData.name}
+                      onChange={(e) => handleChange("name", e.target.value)}
+                      required
+                      className="bg-[#FFFFFC]/5 border-2 border-[#FFFFFC]/10 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2] focus:bg-[#2371A2]/5 focus:ring-0 h-12 rounded-xl transition-all duration-300"
+                    />
+                  </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="message"
-                  className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider block"
-                >
-                  PORUKA *
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Opišite svoje potrebe ili postavite pitanje..."
-                  rows={6}
-                  value={formData.message}
-                  onChange={(e) => handleChange("message", e.target.value)}
-                  required
-                  className="bg-[#020202] border-2 border-[#2371A2]/30 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2]/50 focus:ring-0 rounded-lg transition-all duration-500 ease-in-out resize-none"
-                />
-              </div>
+                  <div className="space-y-2 group">
+                    <label
+                      htmlFor="phone"
+                      className="text-xs font-semibold text-[#FFFFFC]/50 uppercase tracking-wider block group-focus-within:text-[#2371A2] transition-colors"
+                    >
+                      Telefon
+                    </label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+385 91 234 5678"
+                      value={formData.phone}
+                      onChange={(e) => handleChange("phone", e.target.value)}
+                      className="bg-[#FFFFFC]/5 border-2 border-[#FFFFFC]/10 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2] focus:bg-[#2371A2]/5 focus:ring-0 h-12 rounded-xl transition-all duration-300"
+                    />
+                  </div>
+                </div>
 
-              <Button
-                type="submit"
-                className="w-full h-12 bg-[#E0BF18] text-[#020202] hover:bg-[#E0BF18]/80 font-semibold rounded-lg transition-all duration-500 ease-in-out flex items-center justify-center gap-2 group"
-              >
-                Pošalji poruku
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-500 ease-in-out" />
-              </Button>
+                <div className="space-y-2 group">
+                  <label
+                    htmlFor="email"
+                    className="text-xs font-semibold text-[#FFFFFC]/50 uppercase tracking-wider block group-focus-within:text-[#2371A2] transition-colors"
+                  >
+                    Email adresa *
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="vasa@email.com"
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    required
+                    className="bg-[#FFFFFC]/5 border-2 border-[#FFFFFC]/10 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2] focus:bg-[#2371A2]/5 focus:ring-0 h-12 rounded-xl transition-all duration-300"
+                  />
+                </div>
 
-              <p className="text-xs text-[#FFFFFC]/50 text-center">
-                Slanjem ovog obrasca pristajete na našu{" "}
-                <a
-                  href="#"
-                  className="text-[#2371A2]/70 hover:text-[#2371A2] transition-colors duration-300"
+                <div className="space-y-2 group">
+                  <label
+                    htmlFor="message"
+                    className="text-xs font-semibold text-[#FFFFFC]/50 uppercase tracking-wider block group-focus-within:text-[#2371A2] transition-colors"
+                  >
+                    Poruka *
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Opišite svoje potrebe, veličinu krova, mjesečnu potrošnju struje..."
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) => handleChange("message", e.target.value)}
+                    required
+                    className="bg-[#FFFFFC]/5 border-2 border-[#FFFFFC]/10 text-[#FFFFFC] placeholder:text-[#FFFFFC]/30 focus:border-[#2371A2] focus:bg-[#2371A2]/5 focus:ring-0 rounded-xl transition-all duration-300 resize-none"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-14 bg-gradient-to-r from-[#E0BF18] to-[#d4b317] text-[#020202] hover:from-[#E0BF18]/90 hover:to-[#d4b317]/90 font-bold text-lg rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg shadow-[#E0BF18]/20 hover:shadow-[#E0BF18]/40 hover:-translate-y-0.5"
                 >
-                  politiku privatnosti
-                </a>
-                .
-              </p>
-            </form>
+                  <span>Pošalji upit</span>
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+
+                <p className="text-xs text-[#FFFFFC]/40 text-center pt-2">
+                  Slanjem obrasca pristajete na našu{" "}
+                  <a
+                    href="#"
+                    className="text-[#2371A2] hover:text-[#2371A2]/80 transition-colors duration-300 underline underline-offset-2"
+                  >
+                    politiku privatnosti
+                  </a>
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>

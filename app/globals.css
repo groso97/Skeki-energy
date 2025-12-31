@@ -381,67 +381,6 @@
     contain: layout style paint;
   }
 
-  /* Hamburger menu animations */
-  @keyframes hamburger-to-x-top {
-    0% {
-      top: 0;
-      transform: rotate(0deg) translateY(0);
-    }
-    50% {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    100% {
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
-    }
-  }
-
-  @keyframes hamburger-to-x-bottom {
-    0% {
-      bottom: 0;
-      transform: rotate(0deg) translateY(0);
-    }
-    50% {
-      bottom: 50%;
-      transform: translateY(50%);
-    }
-    100% {
-      bottom: 50%;
-      transform: translateY(50%) rotate(-45deg);
-    }
-  }
-
-  @keyframes x-to-hamburger-top {
-    0% {
-      top: 50%;
-      transform: translateY(-50%) rotate(45deg);
-    }
-    50% {
-      top: 50%;
-      transform: translateY(-50%) rotate(0deg);
-    }
-    100% {
-      top: 0;
-      transform: translateY(0) rotate(0deg);
-    }
-  }
-
-  @keyframes x-to-hamburger-bottom {
-    0% {
-      bottom: 50%;
-      transform: translateY(50%) rotate(-45deg);
-    }
-    50% {
-      bottom: 50%;
-      transform: translateY(50%) rotate(0deg);
-    }
-    100% {
-      bottom: 0;
-      transform: translateY(0) rotate(0deg);
-    }
-  }
-
   /* AR/VR Motion Graphics Animations */
   @keyframes ar-vr-float {
     0%, 100% {

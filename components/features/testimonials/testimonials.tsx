@@ -1,12 +1,84 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { TESTIMONIALS } from "@/config/constants"
 import { useScrollBlur } from "@/hooks/use-scroll-blur"
-import { use3DTilt } from "@/hooks/use-3d-tilt"
 import { SectionBadge } from "@/components/shared/section-badge"
 import { cn } from "@/lib/utils"
-import { Quote } from "lucide-react"
+import { Quote, Star } from "lucide-react"
+
+interface TestimonialCardProps {
+  quote: string
+  author: string
+  company: string
+  role?: string
+}
+
+const TestimonialCard = ({ quote, author, company, role }: TestimonialCardProps) => {
+  return (
+    <div className="relative group h-full">
+      {/* Glow effect behind card */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-[#2371A2]/0 via-[#2371A2]/20 to-[#E0BF18]/0 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
+      
+      <Card className="relative border-2 border-[#FFFFFC]/10 bg-[#020202]/95 backdrop-blur-sm hover:border-[#2371A2]/60 transition-all duration-500 h-full hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#2371A2]/20">
+        <CardContent className="pt-8 pb-6">
+          {/* Quote icon with glow */}
+          <div className="mb-6 relative">
+            <div className="absolute -inset-2 bg-[#2371A2]/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative h-12 w-12 rounded-xl bg-gradient-to-br from-[#2371A2]/20 to-[#2371A2]/5 border border-[#2371A2]/30 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+              <Quote className="h-6 w-6 text-[#2371A2] group-hover:text-[#E0BF18] transition-colors duration-500" />
+            </div>
+          </div>
+          
+          {/* Stars */}
+          <div className="flex gap-1 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="h-4 w-4 text-[#E0BF18] fill-[#E0BF18] group-hover:scale-110 transition-transform duration-300"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              />
+            ))}
+          </div>
+          
+          {/* Quote text */}
+          <p className="text-lg mb-6 text-[#FFFFFC]/85 leading-relaxed group-hover:text-[#FFFFFC] transition-colors duration-500 italic">
+            "{quote}"
+          </p>
+          
+          {/* Author info */}
+          <div className="border-t border-[#FFFFFC]/10 group-hover:border-[#2371A2]/30 pt-5 transition-colors duration-500">
+            <div className="flex items-center gap-3">
+              {/* Avatar placeholder */}
+              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#2371A2] to-[#E0BF18] flex items-center justify-center text-[#020202] font-bold text-sm group-hover:scale-110 transition-transform duration-500">
+                {author.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div>
+                <div className="font-semibold text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
+                  {author}
+                </div>
+                <div className="text-sm text-[#FFFFFC]/60 group-hover:text-[#FFFFFC]/80 transition-colors duration-300">
+                  {company}
+                  {role && ` • ${role}`}
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+        
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#2371A2]/0 via-transparent to-[#E0BF18]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      </Card>
+    </div>
+  )
+}
 
 export const Testimonials = () => {
   const { sectionRef, isBlurred } = useScrollBlur()
@@ -41,44 +113,39 @@ export const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {TESTIMONIALS.map((testimonial, index) => {
-            const { elementRef, transform } = use3DTilt({ maxRotation: 3 })
-            return (
-              <div
-                key={index}
-                ref={elementRef}
-                className="ar-vr-card-wrapper"
-                style={{
-                  transform: transform,
-                  transformStyle: "preserve-3d",
-                  transition: "transform 0.1s ease-out",
-                }}
-              >
-                <Card className="border-2 border-[#FFFFFC]/10 bg-[#020202] hover:border-[#2371A2]/50 transition-all duration-500 group ar-vr-card relative h-full">
-                  <CardContent className="pt-6">
-                    <div className="mb-4">
-                      <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center group-hover:bg-[#2371A2]/20 group-hover:border-[#2371A2]/40 group-hover:scale-110 transition-all duration-500">
-                        <Quote className="h-5 w-5 text-[#2371A2] group-hover:scale-110 transition-transform duration-500" />
-                      </div>
-                    </div>
-                    <p className="text-lg mb-6 text-[#FFFFFC]/90 leading-relaxed group-hover:text-[#FFFFFC] transition-colors duration-300">
-                      "{testimonial.quote}"
-                    </p>
-                    <div className="border-t border-[#FFFFFC]/10 pt-4">
-                      <div className="font-semibold text-[#FFFFFC] group-hover:text-[#2371A2] transition-colors duration-300">
-                        {testimonial.author}
-                      </div>
-                      <div className="text-sm text-[#FFFFFC]/70">
-                        {testimonial.company}
-                        {testimonial.role && ` • ${testimonial.role}`}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            )
-          })}
+        <div className="max-w-5xl mx-auto">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-6 py-4">
+              {TESTIMONIALS.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-6 md:basis-1/2">
+                  <TestimonialCard
+                    quote={testimonial.quote}
+                    author={testimonial.author}
+                    company={testimonial.company}
+                    role={testimonial.role}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Navigation buttons below carousel */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <CarouselPrevious 
+                className="static translate-y-0 h-12 w-12 bg-[#020202] border-2 border-[#2371A2]/50 text-[#2371A2] hover:bg-[#2371A2] hover:text-[#FFFFFC] hover:border-[#2371A2] transition-all duration-300 disabled:opacity-30"
+                aria-label="Prethodni komentar"
+              />
+              <CarouselNext 
+                className="static translate-y-0 h-12 w-12 bg-[#020202] border-2 border-[#2371A2]/50 text-[#2371A2] hover:bg-[#2371A2] hover:text-[#FFFFFC] hover:border-[#2371A2] transition-all duration-300 disabled:opacity-30"
+                aria-label="Sljedeći komentar"
+              />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>

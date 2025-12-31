@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Logo } from "@/components/shared/logo"
 import { CONTACT_INFO, NAVIGATION_ITEMS } from "@/config/constants"
 import { Phone, Mail, MapPin, Instagram } from "lucide-react"
@@ -9,20 +8,6 @@ import { cn } from "@/lib/utils"
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
-  const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string; duration: string }>>([])
-
-  useEffect(() => {
-    // Generate particles only on client to avoid hydration mismatch
-    // Reduced for better performance
-    setParticles(
-      Array.from({ length: 15 }).map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        delay: `${Math.random() * 4}s`,
-        duration: `${4 + Math.random() * 4}s`,
-      }))
-    )
-  }, [])
 
   const whatsappNumber = "385977109235" // Remove spaces and + for WhatsApp URL
   const whatsappUrl = `https://wa.me/${whatsappNumber}`
@@ -55,22 +40,6 @@ export const Footer = () => {
       <div className="absolute bottom-20 left-5 w-24 h-24 border-2 border-[#E0BF18]/20 rounded-lg rotate-12 animate-spin-reverse opacity-15" />
       <div className="absolute top-1/3 left-10 w-20 h-20 border-2 border-[#2371A2]/15 rounded-lg rotate-45 animate-float-slow opacity-15" />
       <div className="absolute bottom-1/3 right-20 w-28 h-28 border-2 border-[#E0BF18]/15 rounded-lg rotate-12 animate-float opacity-12" />
-      
-      {/* Yellow particles in background */}
-      <div className="absolute inset-0">
-        {particles.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-[#E0BF18]/30 rounded-full animate-float-particles"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              animationDelay: particle.delay,
-              animationDuration: particle.duration,
-            }}
-          />
-        ))}
-      </div>
 
       <div className="container px-4 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
