@@ -150,7 +150,7 @@ export const Footer = () => {
               <Link href="#" className="hover:text-[#2371A2] transition-colors duration-500">
                 Pravila privatnosti
               </Link>
-              <Link href="#" className="hover:text-[#2371A2] transition-colors duration-500">
+              <Link href="/uvjeti-koristenja" className="hover:text-[#2371A2] transition-colors duration-500">
                 Uvjeti korištenja
               </Link>
             </div>
