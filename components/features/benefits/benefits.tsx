@@ -57,17 +57,17 @@ export const Benefits = () => {
         isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
       )}
     >
-      {/* Pulsing blue light effect */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#2371A2] rounded-full blur-3xl opacity-20 animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      {/* Pulsing blue light effect - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/2 left-1/4 w-96 h-96 bg-[#2371A2] rounded-full blur-3xl opacity-20 animate-pulse-glow" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow" style={{ animationDelay: "1s" }} />
       
-      {/* Geometric shapes overlay */}
-      <div className="absolute top-10 right-10 w-32 h-32 border-2 border-[#2371A2]/30 rounded-lg rotate-45 animate-spin-slow opacity-30" />
-      <div className="absolute bottom-20 left-5 w-24 h-24 border-2 border-[#E0BF18]/30 rounded-lg rotate-12 animate-spin-reverse opacity-25" />
+      {/* Geometric shapes overlay - hidden on mobile */}
+      <div className="hidden md:block absolute top-10 right-10 w-32 h-32 border-2 border-[#2371A2]/30 rounded-lg rotate-45 animate-spin-slow opacity-30" />
+      <div className="hidden md:block absolute bottom-20 left-5 w-24 h-24 border-2 border-[#E0BF18]/30 rounded-lg rotate-12 animate-spin-reverse opacity-25" />
       
-      {/* Floating geometric shapes */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 border-2 border-[#2371A2]/20 rounded-lg rotate-45 animate-float-slow opacity-20" />
-      <div className="absolute bottom-1/3 right-20 w-28 h-28 border-2 border-[#E0BF18]/20 rounded-lg rotate-12 animate-float opacity-15" />
+      {/* Floating geometric shapes - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/4 left-10 w-20 h-20 border-2 border-[#2371A2]/20 rounded-lg rotate-45 animate-float-slow opacity-20" />
+      <div className="hidden md:block absolute bottom-1/3 right-20 w-28 h-28 border-2 border-[#E0BF18]/20 rounded-lg rotate-12 animate-float opacity-15" />
       
       <div className="container px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

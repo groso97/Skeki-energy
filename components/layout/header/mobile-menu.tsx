@@ -57,8 +57,9 @@ export const MobileMenu = () => {
         
         {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 -right-20 w-64 h-64 bg-[#2371A2]/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-40 -left-20 w-48 h-48 bg-[#E0BF18]/10 rounded-full blur-3xl" />
+          {/* Decorative elements - simplified for performance */}
+          <div className="absolute top-20 -right-20 w-64 h-64 bg-[#2371A2]/10 rounded-full blur-xl" />
+          <div className="absolute bottom-40 -left-20 w-48 h-48 bg-[#E0BF18]/10 rounded-full blur-xl" />
           <div className="absolute top-1/2 right-10 w-20 h-20 border border-[#2371A2]/20 rounded-lg rotate-45" />
           <div className="absolute bottom-20 left-10 w-16 h-16 border border-[#E0BF18]/20 rounded-full" />
         </div>

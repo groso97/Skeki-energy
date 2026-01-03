@@ -8,12 +8,19 @@ import { ChevronDown } from "lucide-react";
 import { useScrollHeader } from "@/hooks/use-scroll-header";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 export const Header = () => {
   const { isScrolled } = useScrollHeader();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById("kontakt");
+    if (pathname !== "/") {
+      router.push("/#contact");
+      return;
+    }
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }

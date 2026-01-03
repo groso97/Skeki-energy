@@ -128,6 +128,48 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
   }
+
+  /* Custom Scrollbar Styles */
+  /* For WebKit browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #020202;
+    border-left: 1px solid rgba(35, 113, 162, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2371A2 0%, #1a5a80 50%, #2371A2 100%);
+    border-radius: 6px;
+    border: 2px solid #020202;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #E0BF18 0%, #c9a915 50%, #E0BF18 100%);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #E0BF18;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #020202;
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2371A2 #020202;
+  }
+
+  /* Optional: make scrollbar thinner on hover */
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @layer utilities {
@@ -601,5 +643,74 @@
 
   .ar-vr-entrance {
     animation: ar-vr-entrance 0.8s ease-out both;
+  }
+}
+
+/* Performance Optimizations */
+@layer base {
+  /* Reduce animations on mobile for better performance */
+  @media (max-width: 768px) {
+    .animate-float,
+    .animate-float-slow,
+    .animate-spin-slow,
+    .animate-spin-reverse,
+    .animate-pulse-slow,
+    .animate-pulse-glow,
+    .animate-float-particles,
+    .ar-vr-icon-float,
+    .ar-vr-feature-card,
+    .ar-vr-particle {
+      animation: none !important;
+    }
+
+    /* Simplify blur effects on mobile */
+    .blur-3xl {
+      filter: blur(40px) !important;
+    }
+
+    /* Reduce transform complexity */
+    .ar-vr-card,
+    .ar-vr-card-3d,
+    .ar-vr-button,
+    .ar-vr-button-3d {
+      transform-style: flat !important;
+      perspective: none !important;
+    }
+
+    /* Disable will-change on mobile to save memory */
+    * {
+      will-change: auto !important;
+    }
+  }
+
+  /* Respect user's reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Optimize paint and layout */
+  .contain-paint {
+    contain: paint;
+  }
+
+  .contain-layout {
+    contain: layout;
+  }
+
+  .contain-strict {
+    contain: strict;
+  }
+
+  /* GPU acceleration for critical elements */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 }

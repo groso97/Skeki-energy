@@ -9,7 +9,7 @@ export const CTA = () => {
   const { sectionRef, isBlurred } = useScrollBlur();
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById("kontakt");
+    const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -23,20 +23,20 @@ export const CTA = () => {
         isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
       )}
     >
-      {/* Pulsing yellow light effect */}
-      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
+      {/* Pulsing yellow light effect - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       <div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-14 animate-pulse-glow"
+        className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-14 animate-pulse-glow"
         style={{ animationDelay: "2s" }}
       />
 
-      {/* Large geometric shapes */}
-      <div className="absolute top-10 left-10 w-48 h-48 border-4 border-[#E0BF18]/20 rounded-lg rotate-45 animate-spin-slow opacity-20" />
-      <div className="absolute bottom-20 right-16 w-40 h-40 border-4 border-[#2371A2]/20 rounded-lg rotate-12 animate-spin-reverse opacity-15" />
+      {/* Large geometric shapes - hidden on mobile */}
+      <div className="hidden md:block absolute top-10 left-10 w-48 h-48 border-4 border-[#E0BF18]/20 rounded-lg rotate-45 animate-spin-slow opacity-20" />
+      <div className="hidden md:block absolute bottom-20 right-16 w-40 h-40 border-4 border-[#2371A2]/20 rounded-lg rotate-12 animate-spin-reverse opacity-15" />
 
-      {/* Medium floating shapes */}
-      <div className="absolute top-1/4 right-1/5 w-32 h-32 border-2 border-[#E0BF18]/25 rounded-full animate-float-slow opacity-12" />
-      <div className="absolute bottom-1/3 left-1/6 w-28 h-28 border-2 border-[#2371A2]/25 rounded-lg rotate-45 animate-float opacity-15" />
+      {/* Medium floating shapes - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/4 right-1/5 w-32 h-32 border-2 border-[#E0BF18]/25 rounded-full animate-float-slow opacity-12" />
+      <div className="hidden md:block absolute bottom-1/3 left-1/6 w-28 h-28 border-2 border-[#2371A2]/25 rounded-lg rotate-45 animate-float opacity-15" />
 
       <div className="container px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">

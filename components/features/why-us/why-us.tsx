@@ -9,20 +9,17 @@ const highlights = [
   {
     icon: Globe,
     value: "300+",
-    label: "Projekata u Njemačkoj",
-    description: "s Enpal GmbH",
+    label: "Projekata",
   },
   {
     icon: Award,
     value: "100%",
-    label: "Certifikati",
-    description: "i dozvole za rad",
+    label: "Certifikati i dozvole za rad",
   },
   {
     icon: Users,
     value: "24h",
-    label: "Odziv",
-    description: "na vaš upit",
+    label: "Odziv na vaš upit",
   },
 ]
 
@@ -41,23 +38,23 @@ export const WhyUs = () => {
   return (
     <section
       ref={sectionRef}
-      id="why-us"
+      id="about"
       className={cn(
         "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
         isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
       )}
     >
-      {/* Pulsing yellow light effect */}
-      <div className="absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-15 animate-pulse-glow" style={{ animationDelay: "2s" }} />
+      {/* Pulsing yellow light effect - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 animate-pulse-glow" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-15 animate-pulse-glow" style={{ animationDelay: "2s" }} />
       
-      {/* Large geometric shapes */}
-      <div className="absolute top-0 right-0 w-64 h-64 border-4 border-[#2371A2]/20 rounded-lg rotate-45 -translate-y-1/2 translate-x-1/2 animate-spin-slow opacity-25" />
-      <div className="absolute bottom-0 left-0 w-56 h-56 border-4 border-[#E0BF18]/20 rounded-lg rotate-12 translate-y-1/2 -translate-x-1/2 animate-spin-reverse opacity-20" />
-      
-      {/* Medium floating shapes */}
-      <div className="absolute top-1/4 right-1/4 w-36 h-36 border-2 border-[#2371A2]/25 rounded-full animate-float-slow opacity-15" />
-      <div className="absolute bottom-1/3 left-1/5 w-28 h-28 border-2 border-[#E0BF18]/25 rounded-lg rotate-45 animate-float opacity-20" />
+      {/* Large geometric shapes - hidden on mobile */}
+      <div className="hidden md:block absolute top-0 right-0 w-64 h-64 border-4 border-[#2371A2]/20 rounded-lg rotate-45 -translate-y-1/2 translate-x-1/2 animate-spin-slow opacity-25" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-56 h-56 border-4 border-[#E0BF18]/20 rounded-lg rotate-12 translate-y-1/2 -translate-x-1/2 animate-spin-reverse opacity-20" />
+
+      {/* Medium floating shapes - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/4 right-1/4 w-36 h-36 border-2 border-[#2371A2]/25 rounded-full animate-float-slow opacity-15" />
+      <div className="hidden md:block absolute bottom-1/3 left-1/5 w-28 h-28 border-2 border-[#E0BF18]/25 rounded-lg rotate-45 animate-float opacity-20" />
       
       <div className="container px-4 relative z-10">
         {/* Header */}
@@ -80,7 +77,7 @@ export const WhyUs = () => {
                   <span className="text-[#E0BF18] font-semibold">Skeki Energy d.o.o.</span> je tvrtka specijalizirana za montažu solarnih elektrana, s naglaskom na kvalitetu izvedbe, pouzdanost i profesionalan pristup svakom projektu.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
-                  Posebno se ističe iskustvo rada u <span className="text-[#2371A2] font-medium">Njemačkoj s tvrtkom Enpal GmbH</span>, gdje smo sudjelovali u realizaciji više od 300 fotonaponskih sustava na stambenim objektima.
+                  Posebno se ističe iskustvo rada u Njemačkoj s tvrtkom <a href="https://www.enpal.de/" target="_blank" rel="noopener noreferrer" className="text-[#2371A2] font-medium hover:text-[#2371A2]/80 underline underline-offset-2 transition-colors">Enpal GmbH</a>, gdje smo sudjelovali u realizaciji više od 300 fotonaponskih sustava na stambenim objektima.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
                   Posjedujemo sve potrebne certifikate, obuke i sigurnosne dozvole, uključujući rad na visini.
@@ -127,7 +124,7 @@ export const WhyUs = () => {
                   
                   {/* Content */}
                   <div className="flex-1">
-                    <div className="flex items-baseline gap-2">
+                    <div className="flex items-baseline gap-2 flex-wrap">
                       <span className="text-3xl md:text-4xl font-bold text-[#E0BF18]">
                         {highlight.value}
                       </span>
@@ -135,9 +132,6 @@ export const WhyUs = () => {
                         {highlight.label}
                       </span>
                     </div>
-                    <p className="text-sm text-[#FFFFFC]/60 mt-1">
-                      {highlight.description}
-                    </p>
                   </div>
                 </div>
               </div>

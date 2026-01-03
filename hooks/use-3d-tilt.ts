@@ -7,6 +7,12 @@ interface Use3DTiltOptions {
   perspective?: number
 }
 
+// Check if device is mobile/touch device
+const isTouchDevice = () => {
+  if (typeof window === "undefined") return false
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0
+}
+
 // Throttle function for performance
 const throttle = <T extends (...args: any[]) => void>(
   func: T,
@@ -29,7 +35,8 @@ export const use3DTilt = (options: Use3DTiltOptions = {}) => {
 
   useEffect(() => {
     const element = elementRef.current
-    if (!element) return
+    // Disable 3D tilt on touch devices for performance
+    if (!element || isTouchDevice()) return
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = element.getBoundingClientRect()

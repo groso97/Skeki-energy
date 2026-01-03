@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export const Hero = () => {
   const handleContactClick = () => {
-    const contactSection = document.getElementById("kontakt")
+    const contactSection = document.getElementById("contact")
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" })
     }
@@ -23,17 +23,17 @@ export const Hero = () => {
       {/* Dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#020202] via-[#020202] to-[#000000]" />
       
-      {/* Subtle floating orbs - optimized with will-change */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-[#E0BF18]/10 rounded-full blur-3xl animate-float-slow opacity-50 will-change-transform" />
-      <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#2371A2]/8 rounded-full blur-3xl animate-float opacity-50 will-change-transform" />
+      {/* Subtle floating orbs - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-20 left-10 w-96 h-96 bg-[#E0BF18]/10 rounded-full blur-3xl animate-float-slow opacity-50" />
+      <div className="hidden md:block absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#2371A2]/8 rounded-full blur-3xl animate-float opacity-50" />
 
-      {/* Geometric shapes - optimized with will-change */}
-      <div className="absolute top-0 right-0 w-96 h-96">
-        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-[#E0BF18]/20 rotate-45 animate-spin-slow will-change-transform" />
-        <div className="absolute top-40 right-40 w-24 h-24 border-2 border-[#2371A2]/20 rotate-12 animate-spin-reverse will-change-transform" />
+      {/* Geometric shapes - hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-0 right-0 w-96 h-96">
+        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-[#E0BF18]/20 rotate-45 animate-spin-slow" />
+        <div className="absolute top-40 right-40 w-24 h-24 border-2 border-[#2371A2]/20 rotate-12 animate-spin-reverse" />
       </div>
-      <div className="absolute bottom-0 left-0 w-96 h-96">
-        <div className="absolute bottom-20 left-20 w-40 h-40 border-2 border-[#2371A2]/20 -rotate-45 animate-spin-slow will-change-transform" />
+      <div className="hidden md:block absolute bottom-0 left-0 w-96 h-96">
+        <div className="absolute bottom-20 left-20 w-40 h-40 border-2 border-[#2371A2]/20 -rotate-45 animate-spin-slow" />
       </div>
 
       {/* Content */}

@@ -1,12 +1,18 @@
+import { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { CONTACT_INFO } from "@/config/constants"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
 
-export const metadata = {
-  title: "Uvjeti korištenja | Skeki Energy",
-  description: "Uvjeti korištenja web stranice Skeki Energy d.o.o.",
+export const metadata: Metadata = {
+  title: "Uvjeti korištenja",
+  description: "Uvjeti korištenja web stranice Skeki Energy d.o.o. Pravila i uvjeti za korištenje naših usluga montaže solarnih panela.",
+  alternates: {
+    canonical: "/terms-of-use",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function UvjetiKoristenjaPage() {
@@ -21,33 +27,22 @@ export default function UvjetiKoristenjaPage() {
       <Header />
       <main className="min-h-screen bg-[#020202]">
         {/* Hero Section with Pulsing Blue Background */}
-        <section className="relative py-20 md:py-32 overflow-hidden">
+        <section className="relative py-12 md:py-16 overflow-hidden">
           {/* Pulsing blue background effect */}
           <div className="absolute inset-0 bg-[#2371A2] opacity-20 animate-pulse-glow" />
-          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow -translate-x-1/2 -translate-y-1/2" />
           
           {/* Geometric shapes */}
-          <div className="absolute top-10 right-10 w-32 h-32 border-2 border-[#2371A2]/30 rounded-lg rotate-45 animate-spin-slow opacity-20" />
-          <div className="absolute bottom-20 left-10 w-24 h-24 border-2 border-[#2371A2]/30 rounded-lg rotate-12 animate-spin-reverse opacity-15" />
+          <div className="absolute top-10 right-10 w-24 h-24 border-2 border-[#2371A2]/30 rounded-lg rotate-45 animate-spin-slow opacity-20" />
+          <div className="absolute bottom-10 left-10 w-20 h-20 border-2 border-[#2371A2]/30 rounded-lg rotate-12 animate-spin-reverse opacity-15" />
 
-          <div className="container px-4 relative z-10">
-            {/* Breadcrumbs */}
-            <div className="mb-8">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 text-[#FFFFFC]/60 hover:text-[#2371A2] transition-colors duration-300 text-sm"
-              >
-                <ArrowLeft className="h-4 w-4" />
-                Početna / Uvjeti korištenja
-              </Link>
-            </div>
-
+          <div className="container px-4 max-w-4xl mx-auto relative z-10">
             {/* Title with pulsing blue background */}
-            <div className="mb-6">
+            <div className="mb-4">
               <div className="relative inline-block">
                 <div className="absolute inset-0 bg-[#2371A2] rounded-2xl blur-xl opacity-30 animate-pulse-glow" />
                 <div className="absolute inset-0 bg-[#2371A2]/20 rounded-2xl animate-pulse-glow" />
-                <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFFFFC] mb-4 px-8 py-4 bg-[#2371A2]/10 rounded-2xl border border-[#2371A2]/30 backdrop-blur-sm">
+                <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFFC] px-6 py-3 bg-[#2371A2]/10 rounded-2xl border border-[#2371A2]/30 backdrop-blur-sm">
                   Uvjeti korištenja
                 </h1>
               </div>
@@ -102,7 +97,7 @@ export default function UvjetiKoristenjaPage() {
                   </p>
                   <p>
                     <strong className="text-[#FFFFFC]">1.2.</strong> "Web stranica" se odnosi na sve web stranice, 
-                    podstranice i sadržaj koji je dostupan na domeni skekienergy.hr.
+                    podstranice i sadržaj koji je dostupan na domeni skeki-energy.hr.
                   </p>
                   <p>
                     <strong className="text-[#FFFFFC]">1.3.</strong> "Korisnik", "vi", "vaš" se odnosi na svaku 

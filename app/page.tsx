@@ -34,8 +34,6 @@ const ContactForm = dynamic(() => import("@/components/features/contact").then(m
 const Footer = dynamic(() => import("@/components/layout/footer").then(mod => ({ default: mod.Footer })), {
   ssr: true,
 })
-const ScrollToTop = dynamic(() => import("@/components/shared/scroll-to-top/scroll-to-top").then(mod => ({ default: mod.ScrollToTop })))
-
 export default function Home() {
   return (
     <>
@@ -52,7 +50,6 @@ export default function Home() {
         <ContactForm />
       </main>
       <Footer />
-      <ScrollToTop />
     </>
   )
 }

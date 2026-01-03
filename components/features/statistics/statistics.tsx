@@ -15,8 +15,8 @@ export const Statistics = () => {
         isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
       )}
     >
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Subtle background elements - hidden on mobile */}
+      <div className="hidden md:block absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-64 h-64 border-2 border-[#E0BF18]/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 border-2 border-[#2371A2]/20 rounded-full blur-3xl" />
       </div>

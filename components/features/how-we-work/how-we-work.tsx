@@ -12,22 +12,22 @@ export const HowWeWork = () => {
   return (
     <section
       ref={sectionRef}
-      id="kako-radimo"
+      id="how-we-work"
       className={cn(
         "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
         isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
       )}
     >
-      {/* Pulsing blue light effect */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-[#2371A2] rounded-full blur-3xl opacity-12 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+      {/* Pulsing blue light effect - hidden on mobile */}
+      <div className="hidden md:block absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow" />
+      <div className="hidden md:block absolute bottom-1/4 right-1/3 w-96 h-96 bg-[#2371A2] rounded-full blur-3xl opacity-12 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
       
       {/* Geometric shapes overlay */}
       <div className="absolute top-0 left-0 w-40 h-40 border-4 border-[#E0BF18]/20 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse-slow opacity-30" />
       <div className="absolute bottom-0 right-0 w-48 h-48 border-4 border-[#2371A2]/20 rounded-full translate-x-1/2 translate-y-1/2 animate-pulse-slow opacity-25" style={{ animationDelay: "1s" }} />
       
-      {/* Rotating squares */}
-      <div className="absolute top-20 right-20 w-24 h-24 border-2 border-[#E0BF18]/25 rotate-45 animate-spin-slow opacity-30" />
+      {/* Rotating squares - hidden on mobile */}
+      <div className="hidden md:block absolute top-20 right-20 w-24 h-24 border-2 border-[#E0BF18]/25 rotate-45 animate-spin-slow opacity-30" />
       <div className="absolute bottom-32 left-16 w-20 h-20 border-2 border-[#2371A2]/25 rotate-12 animate-spin-reverse opacity-25" />
       
       <div className="container px-4 relative z-10">

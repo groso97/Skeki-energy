@@ -25,11 +25,11 @@ export const COMPANY_NAME = "Skeki Energy"
 export const COMPANY_TAGLINE = "Vaš partner za solarnu energiju"
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
-  { label: "Početna", href: "#" },
-  { label: "Prednosti", href: "#benefits" },
-  { label: "Kako radimo", href: "#kako-radimo" },
-  { label: "O nama", href: "#why-us" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Početna", href: "/" },
+  { label: "Prednosti", href: "/#benefits" },
+  { label: "Kako radimo", href: "/#how-we-work" },
+  { label: "O nama", href: "/#about" },
+  { label: "Kontakt", href: "/#contact" },
 ]
 
 export const BENEFITS: Benefit[] = [
@@ -140,8 +140,8 @@ export const FAQS: FAQ[] = [
 
 export const CONTACT_INFO: ContactInfo = {
   phone: "+385 97 710 9235",
-  email: "info@skekienergy.hr",
-  address: "Ulica Solarne energije 1\n10000 Zagreb, Hrvatska",
+  email: "info@skeki-energy.hr",
+  address: "Sinjska ulica 11\n10000 Zagreb, Hrvatska",
   workingHours: {
     weekdays: "Ponedjeljak - Petak: 8:00 - 17:00",
     saturday: "Subota: 9:00 - 13:00",
