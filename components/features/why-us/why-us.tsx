@@ -77,7 +77,7 @@ export const WhyUs = () => {
                   <span className="text-[#E0BF18] font-semibold">Skeki Energy d.o.o.</span> je tvrtka specijalizirana za montažu solarnih elektrana, s naglaskom na kvalitetu izvedbe, pouzdanost i profesionalan pristup svakom projektu.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
-                  Posebno se ističe iskustvo rada u Njemačkoj s tvrtkom <a href="https://www.enpal.de/" target="_blank" rel="noopener noreferrer" className="text-[#2371A2] font-medium hover:text-[#2371A2]/80 underline underline-offset-2 transition-colors">Enpal GmbH</a>, gdje smo sudjelovali u realizaciji više od 300 fotonaponskih sustava na stambenim objektima.
+                  Posebno se ističe iskustvo rada u Njemačkoj s tvrtkom <a href="https://www.enpal.de/" target="_blank" rel="noopener noreferrer" className="text-[#2371A2] font-medium hover:text-[#2371A2]/80 transition-colors">Enpal GmbH</a>, gdje smo sudjelovali u realizaciji više od 300 fotonaponskih sustava na stambenim objektima.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
                   Posjedujemo sve potrebne certifikate, obuke i sigurnosne dozvole, uključujući rad na visini.

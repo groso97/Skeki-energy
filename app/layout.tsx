@@ -24,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Skeki Energy - Instalacija Solarnih Panela | Zagreb, Hrvatska",
+    default: "Skeki Energy - Instalacija Solarnih Panela",
     template: "%s | Skeki Energy",
   },
   description:
