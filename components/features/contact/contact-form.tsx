@@ -36,20 +36,52 @@ export const ContactForm = () => {
     phone: "",
     message: "",
   });
-  const [budget, setBudget] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log("Form submitted:", formData);
-    alert("Hvala na upitu! Javit ćemo vam se uskoro.");
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Došlo je do greške.");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Hvala na upitu! Javit ćemo vam se uskoro.",
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "Došlo je do greške. Pokušajte ponovno.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: keyof ContactFormData, value: string) => {
@@ -314,12 +346,55 @@ export const ContactForm = () => {
                   />
                 </div>
 
+                {/* Status message */}
+                {submitStatus.type && (
+                  <div
+                    className={cn(
+                      "p-4 rounded-xl text-center font-medium",
+                      submitStatus.type === "success"
+                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
+                        : "bg-red-500/10 border border-red-500/30 text-red-400"
+                    )}
+                  >
+                    {submitStatus.message}
+                  </div>
+                )}
+
                 <Button
                   type="submit"
-                  className="w-full h-14 bg-gradient-to-r from-[#E0BF18] to-[#d4b317] text-[#020202] hover:from-[#E0BF18]/90 hover:to-[#d4b317]/90 font-bold text-lg rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg shadow-[#E0BF18]/20 hover:shadow-[#E0BF18]/40 hover:-translate-y-0.5"
+                  disabled={isSubmitting}
+                  className="w-full h-14 bg-gradient-to-r from-[#E0BF18] to-[#d4b317] text-[#020202] hover:from-[#E0BF18]/90 hover:to-[#d4b317]/90 font-bold text-lg rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group shadow-lg shadow-[#E0BF18]/20 hover:shadow-[#E0BF18]/40 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                 >
-                  <span>Pošalji upit</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  {isSubmitting ? (
+                    <>
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        />
+                      </svg>
+                      <span>Šaljem...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Pošalji upit</span>
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </>
+                  )}
                 </Button>
 
                 <p className="text-xs text-[#FFFFFC]/40 text-center pt-2">
