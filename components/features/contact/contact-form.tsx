@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -88,6 +88,16 @@ export const ContactForm = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  // Auto-hide success/error message after 3 seconds
+  useEffect(() => {
+    if (submitStatus.type) {
+      const timer = setTimeout(() => {
+        setSubmitStatus({ type: null, message: "" });
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus.type]);
+
   return (
     <section
       ref={sectionRef}
@@ -131,7 +141,7 @@ export const ContactForm = () => {
           {/* Description */}
           <p className="text-lg text-[#FFFFFC]/70 text-balance">
             Spremni ste za solarni projekt? Kontaktirajte nas danas i dobit ćete
-            besplatnu ponudu prilagođenu vašim potrebama. Odgovorimo vam unutar
+            ponudu prilagođenu vašim potrebama. Odgovorimo vam unutar
             24 sata.
           </p>
         </div>
@@ -284,7 +294,7 @@ export const ContactForm = () => {
                     </label>
                     <Input
                       id="name"
-                      placeholder="Vaše ime"
+                      placeholder="Vaše ime i prezime"
                       value={formData.name}
                       onChange={(e) => handleChange("name", e.target.value)}
                       required
@@ -320,7 +330,7 @@ export const ContactForm = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="vasa@email.com"
+                    placeholder="example@gmail.com"
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     required
@@ -337,7 +347,7 @@ export const ContactForm = () => {
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Opišite svoje potrebe, veličinu krova, mjesečnu potrošnju struje..."
+                    placeholder="..."
                     rows={5}
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
@@ -350,12 +360,15 @@ export const ContactForm = () => {
                 {submitStatus.type && (
                   <div
                     className={cn(
-                      "p-4 rounded-xl text-center font-medium",
+                      "p-4 rounded-xl text-center font-medium transition-all duration-300 animate-in fade-in slide-in-from-top-2",
                       submitStatus.type === "success"
-                        ? "bg-green-500/10 border border-green-500/30 text-green-400"
-                        : "bg-red-500/10 border border-red-500/30 text-red-400"
+                        ? "bg-[#2371A2]/10 border-2 border-[#2371A2]/40 text-[#2371A2]"
+                        : "bg-red-500/10 border-2 border-red-500/30 text-red-400"
                     )}
                   >
+                    {submitStatus.type === "success" && (
+                      <span className="mr-2">✓</span>
+                    )}
                     {submitStatus.message}
                   </div>
                 )}

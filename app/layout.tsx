@@ -184,7 +184,7 @@ export default function RootLayout({
                     itemOffered: {
                       "@type": "Service",
                       name: "Konzultacije",
-                      description: "Besplatno savjetovanje o solarnim sustavima",
+                      description: "Savjetovanje o solarnim sustavima",
                     },
                   },
                 ],

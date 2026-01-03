@@ -44,7 +44,7 @@ export const CTA = () => {
             Spremni za početak suradnje?
           </h2>
           <p className="text-xl text-[#FFFFFC]/70 mb-8 text-balance">
-            Kontaktirajte nas danas i započnite svoju putanju prema energetskoj
+            Kontaktirajte nas danas i započnite svoj put prema energetskoj
             neovisnosti
           </p>
           <div className="flex justify-center">

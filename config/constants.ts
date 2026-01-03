@@ -60,13 +60,13 @@ export const STEPS: Step[] = [
     icon: MessageSquare,
     step: "01",
     title: "Savjetovanje",
-    description: "Besplatni razgovor i analiza vaših potreba i mogućnosti",
+    description: "Razgovor i analiza vaših potreba i mogućnosti",
   },
   {
     icon: PenTool,
     step: "02",
     title: "Projektiranje",
-    description: "Izrada personaliziranog projekta i ponude prilagođene vašem domu",
+    description: "Izrada personaliziranog projekta i ponude prilagođene vašim željama",
   },
   {
     icon: Wrench,
@@ -109,7 +109,7 @@ export const FAQS: FAQ[] = [
   {
     question: "Koliko košta instalacija solarnih panela?",
     answer:
-      "Cijena ovisi o veličini sustava i potrebama vašeg kućanstva. Prosječna cijena za obiteljsku kuću kreće se od 6.000 do 15.000 eura. Kontaktirajte nas za besplatnu ponudu prilagođenu vašim potrebama.",
+      "Cijena ovisi o veličini sustava i potrebama vašeg kućanstva. Prosječna cijena za obiteljsku kuću kreće se od 6.000 do 15.000 eura. Kontaktirajte nas za ponudu prilagođenu vašim potrebama.",
   },
   {
     question: "Za koliko se vremena isplate solarni paneli?",

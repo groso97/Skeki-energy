@@ -81,10 +81,6 @@ export const Hero = () => {
 
           <div className="pt-8 flex flex-wrap justify-center gap-8 text-sm text-[#FFFFFC]/70 animate-fade-in-delay">
             <div className="flex items-center gap-2 group">
-              <div className="h-2 w-2 rounded-full bg-[#E0BF18] group-hover:scale-150 transition-transform" />
-              <span>Besplatno savjetovanje</span>
-            </div>
-            <div className="flex items-center gap-2 group">
               <div className="h-2 w-2 rounded-full bg-[#2371A2] group-hover:scale-150 transition-transform" />
               <span>Brza instalacija</span>
             </div>
