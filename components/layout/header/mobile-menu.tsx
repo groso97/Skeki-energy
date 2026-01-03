@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { HamburgerMenu } from "@/components/shared/hamburger-menu"
 import { NAVIGATION_ITEMS, COMPANY_NAME } from "@/config/constants"
 import { Button } from "@/components/ui/button"
