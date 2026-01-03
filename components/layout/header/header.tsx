@@ -74,6 +74,7 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center gap-4 z-10">
+          <MobileMenu />
           <Button
             onClick={handleContactClick}
             size="sm"
@@ -87,7 +88,6 @@ export const Header = () => {
               <ChevronDown className="h-4 w-4 drop-shadow-[0_0_8px_rgba(35,113,162,0.8)]" />
             </span>
           </Button>
-          <MobileMenu />
         </div>
       </div>
     </header>

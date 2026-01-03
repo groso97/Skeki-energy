@@ -24,12 +24,9 @@ const WhatsAppIcon = () => (
   </svg>
 );
 import { CONTACT_INFO } from "@/config/constants";
-import { useScrollBlur } from "@/hooks/use-scroll-blur";
-import { cn } from "@/lib/utils";
 import type { ContactFormData } from "@/types";
 
 export const ContactForm = () => {
-  const { sectionRef, isBlurred } = useScrollBlur();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -100,12 +97,8 @@ export const ContactForm = () => {
 
   return (
     <section
-      ref={sectionRef}
       id="contact"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing blue light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-[#2371A2] rounded-full blur-3xl opacity-16 animate-pulse-glow" />

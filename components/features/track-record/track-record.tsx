@@ -1,20 +1,12 @@
 "use client"
 
 import { TRACK_RECORD } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 
 export const TrackRecord = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-10">

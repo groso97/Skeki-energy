@@ -9,9 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { TESTIMONIALS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 import { Quote, Star } from "lucide-react"
 
 interface TestimonialCardProps {
@@ -81,16 +79,10 @@ const TestimonialCard = ({ quote, author, company, role }: TestimonialCardProps)
 }
 
 export const Testimonials = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="testimonials"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing yellow light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/2 left-1/2 w-[550px] h-[550px] bg-[#E0BF18] rounded-full blur-3xl opacity-16 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />

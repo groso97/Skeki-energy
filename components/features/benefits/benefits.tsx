@@ -2,9 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BENEFITS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 import { LucideIcon } from "lucide-react"
 
 interface BenefitCardProps {
@@ -46,16 +44,10 @@ const BenefitCard = ({ icon: Icon, title, description }: BenefitCardProps) => {
 }
 
 export const Benefits = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="benefits"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing blue light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/2 left-1/4 w-96 h-96 bg-[#2371A2] rounded-full blur-3xl opacity-20 animate-pulse-glow" />

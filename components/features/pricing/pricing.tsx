@@ -3,15 +3,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PRICING_PLANS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { use3DTilt } from "@/hooks/use-3d-tilt"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 import { Check } from "lucide-react"
 
 export const Pricing = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   const handleContactClick = () => {
     const contactSection = document.getElementById("kontakt")
     if (contactSection) {
@@ -21,12 +17,8 @@ export const Pricing = () => {
 
   return (
     <section
-      ref={sectionRef}
       id="pricing"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">

@@ -3,12 +3,9 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
-import { cn } from "@/lib/utils"
 import { Mail } from "lucide-react"
 
 export const Newsletter = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
   const [email, setEmail] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -21,11 +18,7 @@ export const Newsletter = () => {
 
   return (
     <section
-      ref={sectionRef}
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 opacity-10">

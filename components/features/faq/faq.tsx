@@ -2,21 +2,13 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { FAQS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 
 export const FAQ = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="faq"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing yellow light effect */}
       <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-[#E0BF18] rounded-full blur-3xl opacity-12 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />

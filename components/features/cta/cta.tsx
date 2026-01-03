@@ -1,13 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useScrollBlur } from "@/hooks/use-scroll-blur";
-import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
 export const CTA = () => {
-  const { sectionRef, isBlurred } = useScrollBlur();
-
   const handleContactClick = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -17,11 +13,7 @@ export const CTA = () => {
 
   return (
     <section
-      ref={sectionRef}
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing yellow light effect - hidden on mobile for performance */}
       <div className="hidden md:block absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />

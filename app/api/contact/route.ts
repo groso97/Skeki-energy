@@ -102,14 +102,6 @@ export async function POST(request: NextRequest) {
                   </table>
                   <p style="color: rgba(255, 255, 252, 0.9); line-height: 1.7; margin: 0; font-size: 15px; white-space: pre-wrap;">${message}</p>
                 </div>
-                
-                <!-- CTA Button -->
-                <div style="text-align: center;">
-                  <a href="mailto:${email}?subject=Re: Vaš upit - Skeki Energy" 
-                     style="display: inline-block; background: linear-gradient(135deg, #E0BF18 0%, #c9a915 100%); color: #020202; padding: 16px 40px; text-decoration: none; border-radius: 10px; font-weight: 700; font-size: 15px; letter-spacing: 0.3px; box-shadow: 0 4px 15px rgba(224, 191, 24, 0.3), 0 0 0 1px rgba(224, 191, 24, 0.5);">
-                    Odgovori na upit →
-                  </a>
-                </div>
               </div>
             
             </div>

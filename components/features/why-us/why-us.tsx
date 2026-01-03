@@ -1,8 +1,6 @@
 "use client"
 
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 import { Award, Users, Shield, Target, CheckCircle2, Globe } from "lucide-react"
 
 const highlights = [
@@ -33,16 +31,10 @@ const features = [
 ]
 
 export const WhyUs = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="about"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing yellow light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 animate-pulse-glow" />

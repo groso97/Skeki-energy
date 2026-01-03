@@ -1,19 +1,11 @@
 "use client"
 
 import { STATISTICS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
-import { cn } from "@/lib/utils"
 
 export const Statistics = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
-      className={cn(
-        "py-16 md:py-24 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-16 md:py-24 relative overflow-hidden bg-[#020202]"
     >
       {/* Subtle background elements - hidden on mobile */}
       <div className="hidden md:block absolute inset-0 opacity-10">

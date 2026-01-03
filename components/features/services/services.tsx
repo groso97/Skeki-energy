@@ -2,21 +2,13 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { SERVICES } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 
 export const Services = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="services"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Pulsing blue light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-[#2371A2] rounded-full blur-3xl opacity-15 animate-pulse-glow" />

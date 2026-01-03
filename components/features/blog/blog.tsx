@@ -3,23 +3,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { BLOG_POSTS } from "@/config/constants"
-import { useScrollBlur } from "@/hooks/use-scroll-blur"
 import { use3DTilt } from "@/hooks/use-3d-tilt"
 import { SectionBadge } from "@/components/shared/section-badge"
-import { cn } from "@/lib/utils"
 import { ArrowRight, Calendar } from "lucide-react"
 
 export const Blog = () => {
-  const { sectionRef, isBlurred } = useScrollBlur()
-
   return (
     <section
-      ref={sectionRef}
       id="blog"
-      className={cn(
-        "py-20 md:py-32 relative overflow-hidden bg-[#020202] transition-all duration-1000",
-        isBlurred ? "blur-sm opacity-50" : "blur-0 opacity-100"
-      )}
+      className="py-20 md:py-32 relative overflow-hidden bg-[#020202]"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
