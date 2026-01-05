@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { CookieBanner } from "@/components/shared/cookie-banner";
 import "./globals.css";
 
 const inter = Inter({
@@ -182,6 +183,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>

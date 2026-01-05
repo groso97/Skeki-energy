@@ -16,11 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default function UvjetiKoristenjaPage() {
-  const currentDate = new Date().toLocaleDateString("hr-HR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  const currentDate = "2. siječnja 2026."
 
   return (
     <>
