@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Skeki Energy",
   },
   description:
-    "Profesionalna montaža solarnih elektrana u Hrvatskoj. Uštedite do 90% na računima za struju. 300+ projekata, certifikati i dozvole. Besplatna ponuda!",
+    "Profesionalna montaža solarnih elektrana diljem Hrvatske. 300+ projekata, certificirani stručnjaci. Uštedite do 90% na računima za struju.",
   keywords: [
     "solarni paneli",
     "solarna energija",
