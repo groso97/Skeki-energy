@@ -1,10 +1,8 @@
 import dynamic from "next/dynamic"
 import { Hero } from "@/components/features/hero"
+import { Header } from "@/components/layout/header"
 
-// Lazy load all non-critical components
-const Header = dynamic(() => import("@/components/layout/header").then(mod => ({ default: mod.Header })), {
-  ssr: true,
-})
+
 const Statistics = dynamic(() => import("@/components/features/statistics").then(mod => ({ default: mod.Statistics })), {
   loading: () => null,
 })
