@@ -2,6 +2,7 @@ import type React from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { CookieBanner } from "@/components/shared/cookie-banner";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Skeki Energy",
   },
   description:
-    "Profesionalna montaža solarnih elektrana u Hrvatskoj. Uštedite do 90% na računima za struju. 300+ projekata, certifikati i dozvole. Besplatna ponuda!",
+    "Profesionalna montaža solarnih elektrana diljem Hrvatske. 300+ projekata, certificirani stručnjaci. Uštedite do 90% na računima za struju.",
   keywords: [
     "solarni paneli",
     "solarna energija",
@@ -182,6 +183,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         {children}
+        <CookieBanner />
         <Analytics />
       </body>
     </html>

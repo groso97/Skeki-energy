@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import { HamburgerMenu } from "@/components/shared/hamburger-menu"
-import { NAVIGATION_ITEMS, COMPANY_NAME } from "@/config/constants"
-import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/shared/logo"
+import { NAVIGATION_ITEMS, CONTACT_INFO } from "@/config/constants"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { X } from "lucide-react"
+import { X, ChevronRight, Phone, Mail } from "lucide-react"
 
 export const MobileMenu = () => {
   const [open, setOpen] = useState(false)
@@ -65,13 +65,13 @@ export const MobileMenu = () => {
       {/* Mobile menu panel */}
       <div
         className={cn(
-          "fixed top-0 bottom-0 right-0 w-[280px] bg-[#020202] border-l border-[#2371A2]/20 transition-transform duration-300 ease-in-out md:hidden flex flex-col shadow-2xl",
+          "fixed top-0 bottom-0 right-0 h-dvh w-full bg-[#020202] border-l border-[#2371A2]/20 transition-transform duration-300 ease-in-out md:hidden flex flex-col shadow-2xl",
           open ? "translate-x-0 z-[1000]" : "translate-x-full z-[-1]"
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[#2371A2]/20 flex-shrink-0">
-          <h2 className="text-xl font-semibold text-[#FFFFFC]">Meni</h2>
+        <div className="flex items-center justify-between p-4 border-b border-[#2371A2]/20 shrink-0">
+          <Logo size="sm" />
           <button
             onClick={() => setOpen(false)}
             className="p-2 rounded-lg hover:bg-[#2371A2]/10 transition-colors"
@@ -82,48 +82,79 @@ export const MobileMenu = () => {
         </div>
 
         {/* Navigation - scrollable area */}
-        <div className="flex-1 overflow-y-auto p-4">
-          <nav className="space-y-2">
-            {NAVIGATION_ITEMS.map((item) => {
+        <div className="flex-1 overflow-y-auto">
+          <nav className="py-2">
+            {NAVIGATION_ITEMS.map((item, index) => {
               const isActive = pathname === item.href || (item.href === "#" && pathname === "/")
+              const isContactItem = item.href === "/#contact" || item.label === "Kontakt"
+              
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => handleLinkClick(item.href)}
-                  className={cn(
-                    "block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200",
-                    isActive
-                      ? "text-[#E0BF18] bg-[#E0BF18]/10 border border-[#E0BF18]/30"
-                      : "text-[#FFFFFC] hover:text-[#E0BF18] hover:bg-[#2371A2]/10"
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => handleLinkClick(item.href)}
+                    className={cn(
+                      "flex items-center justify-between px-4 py-4 text-base font-medium transition-all duration-200",
+                      isActive
+                        ? "text-[#E0BF18]"
+                        : "text-[#FFFFFC] hover:text-[#E0BF18]"
+                    )}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                  {index < NAVIGATION_ITEMS.length - 1 && (
+                    <div className="h-px bg-[#2371A2]/20 mx-4" />
                   )}
-                >
-                  {item.label}
-                </Link>
+                  
+                  {/* Contact Info Blocks - Show after Kontakt */}
+                  {isContactItem && (
+                    <div className="px-4 py-4 space-y-3">
+                      {/* Phone */}
+                      <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2371A2]/10">
+                        <div className="flex items-start gap-3">
+                          <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center shrink-0">
+                            <Phone className="h-5 w-5 text-[#2371A2]" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider mb-1">
+                              TELEFON
+                            </div>
+                            <a
+                              href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`}
+                              className="text-base font-medium text-[#FFFFFC] hover:text-[#E0BF18] transition-colors"
+                            >
+                              {CONTACT_INFO.phone}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Email */}
+                      <div className="bg-[#1a1a1a] rounded-lg p-4 border border-[#2371A2]/10">
+                        <div className="flex items-start gap-3">
+                          <div className="h-10 w-10 rounded-lg bg-[#2371A2]/10 border border-[#2371A2]/20 flex items-center justify-center shrink-0">
+                            <Mail className="h-5 w-5 text-[#2371A2]" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider mb-1">
+                              EMAIL
+                            </div>
+                            <a
+                              href={`mailto:${CONTACT_INFO.email}`}
+                              className="text-base font-medium text-[#FFFFFC] hover:text-[#E0BF18] transition-colors break-all"
+                            >
+                              {CONTACT_INFO.email}
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               )
             })}
           </nav>
-        </div>
-
-        {/* Footer */}
-        <div className="p-4 border-t border-[#2371A2]/20 bg-[#020202] flex-shrink-0">
-          <Button
-            onClick={handleContactClick}
-            className="w-full bg-[#E0BF18] text-[#020202] rounded-lg px-4 py-3 font-semibold hover:bg-[#E0BF18]/90 transition-all duration-200"
-          >
-            Kontaktiraj nas
-          </Button>
-
-          <div className="mt-3 space-y-1 text-sm text-[#FFFFFC]/70">
-            <p>© {currentYear} {COMPANY_NAME}</p>
-            <Link
-              href="/privacy-policy"
-              onClick={() => handleLinkClick("/privacy-policy")}
-              className="block hover:text-[#E0BF18] transition-colors"
-            >
-              Politika privatnosti
-            </Link>
-          </div>
         </div>
       </div>
 

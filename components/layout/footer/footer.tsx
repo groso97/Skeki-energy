@@ -29,7 +29,7 @@ export const Footer = () => {
   const legalLinks = [
     { label: "Politika privatnosti", href: "/privacy-policy" },
     { label: "Uvjeti korištenja", href: "/terms-of-use" },
-    { label: "Kolačići", href: "#" },
+    { label: "Kolačići", href: "/kolacici" },
   ]
 
   return (
@@ -142,7 +142,15 @@ export const Footer = () => {
               © {currentYear} Skeki Energy. Sva prava pridržana.
             </p>
             <p className="text-sm text-[#FFFFFC]/40">
-              Made with care in Zagreb
+              Made with care by{" "}
+              <a
+                href="https://algo-solutions.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FFFFFC]/40 hover:text-[#2371A2] transition-colors duration-300"
+              >
+                ALGO Solutions
+              </a>
             </p>
           </div>
         </div>

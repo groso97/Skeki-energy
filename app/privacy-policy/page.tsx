@@ -16,11 +16,7 @@ export const metadata: Metadata = {
 }
 
 export default function PolitikaPrivatnostiPage() {
-  const currentDate = new Date().toLocaleDateString("hr-HR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  const currentDate = "2. siječnja 2026."
 
   return (
     <>
@@ -80,7 +76,11 @@ export default function PolitikaPrivatnostiPage() {
               <div className="space-y-2 text-[#FFFFFC]/80 text-sm">
                 <p><span className="font-medium">Pravno ime:</span> Skeki Energy d.o.o.</p>
                 <p><span className="font-medium">Adresa:</span> Sinjska ulica 11, Sesvete</p>
+                <p><span className="font-medium">Djelatnost:</span> 43210, Elektroinstalacijski radovi</p>
                 <p><span className="font-medium">OIB:</span> 75956498621</p>
+                <p><span className="font-medium">MB:</span> 06191134</p>
+                <p><span className="font-medium">Godina osnivanja:</span> 2025.</p>
+                <p><span className="font-medium">Kontakt:</span> {CONTACT_INFO.phone}</p>
                 <p><span className="font-medium">Email:</span> {CONTACT_INFO.email}</p>
               </div>
             </div>
