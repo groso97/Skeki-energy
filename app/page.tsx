@@ -5,9 +5,6 @@ import { Hero } from "@/components/features/hero"
 const Header = dynamic(() => import("@/components/layout/header").then(mod => ({ default: mod.Header })), {
   ssr: true,
 })
-const Statistics = dynamic(() => import("@/components/features/statistics").then(mod => ({ default: mod.Statistics })), {
-  loading: () => null,
-})
 
 // Lazy load non-critical sections for better performance
 const Benefits = dynamic(() => import("@/components/features/benefits").then(mod => ({ default: mod.Benefits })), {
@@ -17,9 +14,6 @@ const CTA = dynamic(() => import("@/components/features/cta").then(mod => ({ def
   loading: () => null,
 })
 const HowWeWork = dynamic(() => import("@/components/features/how-we-work").then(mod => ({ default: mod.HowWeWork })), {
-  loading: () => null,
-})
-const Testimonials = dynamic(() => import("@/components/features/testimonials").then(mod => ({ default: mod.Testimonials })), {
   loading: () => null,
 })
 const Services = dynamic(() => import("@/components/features/services").then(mod => ({ default: mod.Services })), {
@@ -40,13 +34,11 @@ export default function Home() {
       <Header />
       <main className="min-h-screen">
         <Hero />
-        <Statistics />
+        <WhyUs />
         <Benefits />
         <CTA />
         <HowWeWork />
-        <Testimonials />
         <Services />
-        <WhyUs />
         <ContactForm />
       </main>
       <Footer />

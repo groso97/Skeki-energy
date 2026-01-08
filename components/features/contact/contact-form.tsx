@@ -6,13 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import {
-  Mail,
-  MapPin,
-  Clock,
-  ArrowRight,
-  Instagram,
-} from "lucide-react";
+import { Mail, MapPin, Clock, ArrowRight, Instagram } from "lucide-react";
 
 const WhatsAppIcon = () => (
   <svg
@@ -64,7 +58,7 @@ export const ContactForm = () => {
         type: "success",
         message: "Hvala na upitu! Javit ćemo vam se uskoro.",
       });
-      
+
       // Reset form
       setFormData({
         name: "",
@@ -75,7 +69,10 @@ export const ContactForm = () => {
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "Došlo je do greške. Pokušajte ponovno.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Došlo je do greške. Pokušajte ponovno.",
       });
     } finally {
       setIsSubmitting(false);
@@ -135,8 +132,7 @@ export const ContactForm = () => {
           {/* Description */}
           <p className="text-lg text-[#FFFFFC]/70 text-balance">
             Spremni ste za solarni projekt? Kontaktirajte nas danas i dobit ćete
-            ponudu prilagođenu vašim potrebama. Odgovorimo vam unutar
-            24 sata.
+            ponudu prilagođenu vašim potrebama. Odgovorimo vam unutar 24 sata.
           </p>
         </div>
 
@@ -162,7 +158,7 @@ export const ContactForm = () => {
               </div>
             </div>
 
-            {/* Location */}
+            {/* LOKACIJA */}
             <div className="group">
               <div className="border-2 border-[#FFFFFC]/10 bg-[#020202] rounded-lg p-6 transition-all duration-500 ease-in-out hover:border-[#2371A2]/50">
                 <div className="flex items-start gap-4">
@@ -171,7 +167,7 @@ export const ContactForm = () => {
                   </div>
                   <div className="flex-1">
                     <div className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider mb-2 group-hover:text-[#2371A2]/90 transition-all duration-500 ease-in-out">
-                      LOCATION
+                      LOKACIJA
                     </div>
                     <div className="text-lg font-bold text-[#FFFFFC] group-hover:text-[#2371A2]/80 transition-all duration-500 ease-in-out">
                       {CONTACT_INFO.address.split("\n")[0]}
@@ -181,7 +177,7 @@ export const ContactForm = () => {
               </div>
             </div>
 
-            {/* Response Time */}
+            {/* VRIJEME ODGOVORA */}
             <div className="group">
               <div className="border-2 border-[#FFFFFC]/10 bg-[#020202] rounded-lg p-6 transition-all duration-500 ease-in-out hover:border-[#2371A2]/50">
                 <div className="flex items-start gap-4">
@@ -190,7 +186,7 @@ export const ContactForm = () => {
                   </div>
                   <div className="flex-1">
                     <div className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider mb-2 group-hover:text-[#2371A2]/90 transition-all duration-500 ease-in-out">
-                      RESPONSE TIME
+                      VRIJEME ODGOVORA
                     </div>
                     <div className="text-lg font-bold text-[#FFFFFC] group-hover:text-[#2371A2]/80 transition-all duration-500 ease-in-out">
                       Unutar 24 sata
@@ -200,7 +196,7 @@ export const ContactForm = () => {
               </div>
             </div>
 
-            {/* Office Hours - Highlighted */}
+            {/* Radno vrijeme - Highlighted */}
             <div className="group">
               <div className="border-2 border-[#2371A2]/50 bg-[#020202] rounded-lg p-6 transition-all duration-500 ease-in-out hover:border-[#2371A2] hover:shadow-lg hover:shadow-[#2371A2]/10">
                 <div className="flex items-start gap-4">
@@ -209,7 +205,7 @@ export const ContactForm = () => {
                   </div>
                   <div className="flex-1">
                     <div className="text-xs font-semibold text-[#2371A2] uppercase tracking-wider mb-4">
-                      OFFICE HOURS
+                      RADNO VRIJEME UREDA
                     </div>
                     <div className="space-y-2">
                       <div className="flex justify-between items-center">
@@ -234,14 +230,16 @@ export const ContactForm = () => {
               </div>
             </div>
 
-            {/* Follow Us */}
+            {/* Zapratite nas */}
             <div className="pt-4">
               <div className="text-xs font-semibold text-[#2371A2]/70 uppercase tracking-wider mb-4">
-                FOLLOW US
+                ZAPRATITE NAS
               </div>
               <div className="flex gap-3">
                 <a
-                  href={`https://wa.me/${CONTACT_INFO.phone.replace(/\s/g, "").replace("+", "")}`}
+                  href={`https://wa.me/${CONTACT_INFO.phone
+                    .replace(/\s/g, "")
+                    .replace("+", "")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 rounded-lg border-2 border-[#FFFFFC]/10 bg-[#020202] flex items-center justify-center hover:border-[#2371A2]/50 hover:bg-[#2371A2]/10 transition-all duration-500 ease-in-out group"
@@ -268,12 +266,16 @@ export const ContactForm = () => {
           <div className="relative">
             {/* Form card with glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-[#2371A2]/20 via-[#E0BF18]/10 to-[#2371A2]/20 rounded-2xl blur-xl opacity-50" />
-            
+
             <div className="relative bg-[#020202]/80 backdrop-blur-sm border-2 border-[#FFFFFC]/10 rounded-2xl p-8">
               {/* Form header */}
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-[#FFFFFC] mb-2">Pošaljite upit</h3>
-                <p className="text-sm text-[#FFFFFC]/60">Ispunite formu i javit ćemo vam se što prije</p>
+                <h3 className="text-2xl font-bold text-[#FFFFFC] mb-2">
+                  Pošaljite upit
+                </h3>
+                <p className="text-sm text-[#FFFFFC]/60">
+                  Ispunite formu i javit ćemo vam se što prije
+                </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">

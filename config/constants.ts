@@ -1,4 +1,15 @@
-import type { NavigationItem, Benefit, Step, Feature, FAQ, ContactInfo, Statistic, Project, PricingPlan, Testimonial, BlogPost } from "@/types"
+import type {
+  NavigationItem,
+  Benefit,
+  Step,
+  Feature,
+  FAQ,
+  ContactInfo,
+  Project,
+  PricingPlan,
+  Testimonial,
+  BlogPost,
+} from "@/types";
 import {
   TrendingDown,
   Leaf,
@@ -12,17 +23,15 @@ import {
   Users,
   Shield,
   Sparkles,
-  TrendingUp,
-  Clock,
   Star,
   Building2,
   Sun,
   Battery,
   Settings,
-} from "lucide-react"
+} from "lucide-react";
 
-export const COMPANY_NAME = "Skeki Energy"
-export const COMPANY_TAGLINE = "Vaš partner za solarnu energiju"
+export const COMPANY_NAME = "Skeki Energy";
+export const COMPANY_TAGLINE = "Vaš partner za solarnu energiju";
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: "Početna", href: "/" },
@@ -30,30 +39,34 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: "Kako radimo", href: "/#how-we-work" },
   { label: "O nama", href: "/#about" },
   { label: "Kontakt", href: "/#contact" },
-]
+];
 
 export const BENEFITS: Benefit[] = [
   {
     icon: TrendingDown,
     title: "Značajne uštede",
-    description: "Smanjite račune za struju do 90% i zaštitite se od rastućih cijena energije",
+    description:
+      "Smanjite račune za struju do 90% i zaštitite se od rastućih cijena energije",
   },
   {
     icon: Leaf,
     title: "Čista energija",
-    description: "Proizvodite vlastitu obnovljivu energiju i smanjite ugljični otisak",
+    description:
+      "Proizvodite vlastitu obnovljivu energiju i smanjite ugljični otisak",
   },
   {
     icon: Zap,
     title: "Energetska neovisnost",
-    description: "Budite neovisni od javne mreže i osigurajte stabilnu opskrbu energijom",
+    description:
+      "Budite neovisni od javne mreže i osigurajte stabilnu opskrbu energijom",
   },
   {
     icon: Home,
     title: "Povećanje vrijednosti",
-    description: "Povećajte tržišnu vrijednost svoje nekretnine s modernom tehnologijom",
+    description:
+      "Povećajte tržišnu vrijednost svoje nekretnine s modernom tehnologijom",
   },
-]
+];
 
 export const STEPS: Step[] = [
   {
@@ -66,7 +79,8 @@ export const STEPS: Step[] = [
     icon: PenTool,
     step: "02",
     title: "Projektiranje",
-    description: "Izrada personaliziranog projekta i ponude prilagođene vašim željama",
+    description:
+      "Izrada personaliziranog projekta i ponude prilagođene vašim željama",
   },
   {
     icon: Wrench,
@@ -78,9 +92,10 @@ export const STEPS: Step[] = [
     icon: CheckCircle2,
     step: "04",
     title: "Puštanje u rad",
-    description: "Testiranje sustava, obuka i aktiviranje vaše solarne elektrane",
+    description:
+      "Testiranje sustava, obuka i aktiviranje vaše solarne elektrane",
   },
-]
+];
 
 export const FEATURES: Feature[] = [
   {
@@ -103,7 +118,7 @@ export const FEATURES: Feature[] = [
     title: "Premium oprema",
     description: "Samo najkvalitetniji solarne panele i komponente",
   },
-]
+];
 
 export const FAQS: FAQ[] = [
   {
@@ -136,7 +151,7 @@ export const FAQS: FAQ[] = [
     answer:
       "Nudimo jamstvo od 10 godina na instalaciju i do 25 godina na solarne panele (ovisno o proizvođaču). Također nudimo redovito održavanje i tehničku podršku.",
   },
-]
+];
 
 export const CONTACT_INFO: ContactInfo = {
   phone: "+385 97 710 9235",
@@ -147,43 +162,34 @@ export const CONTACT_INFO: ContactInfo = {
     saturday: "Subota: 9:00 - 13:00",
     sunday: "Nedjelja: Zatvoreno",
   },
-}
-
-export const STATISTICS: Statistic[] = [
-  {
-    value: "300+",
-    label: "Uspješno realiziranih projekata",
-    icon: TrendingUp,
-  },
-  {
-    value: "1-2 dana",
-    label: "Prosječno vrijeme instalacije",
-    icon: Clock,
-  },
-]
+};
 
 export const PROJECTS: Project[] = [
   {
     title: "Obiteljska kuća - Zagreb",
-    description: "Kompletan solarni sustav za obiteljsku kuću s baterijskim skladištem energije",
+    description:
+      "Kompletan solarni sustav za obiteljsku kuću s baterijskim skladištem energije",
     category: "Stambeni objekti",
   },
   {
     title: "Poslovni objekt - Split",
-    description: "Velika solarna instalacija za poslovni objekt s monitoring sustavom",
+    description:
+      "Velika solarna instalacija za poslovni objekt s monitoring sustavom",
     category: "Poslovni objekti",
   },
   {
     title: "Vikendica - Istra",
-    description: "Autonomni solarni sustav za vikendicu bez priključka na mrežu",
+    description:
+      "Autonomni solarni sustav za vikendicu bez priključka na mrežu",
     category: "Autonomni sustavi",
   },
   {
     title: "Poljoprivredno gospodarstvo",
-    description: "Solarna elektrana za poljoprivredno gospodarstvo s maksimalnom učinkovitošću",
+    description:
+      "Solarna elektrana za poljoprivredno gospodarstvo s maksimalnom učinkovitošću",
     category: "Poljoprivreda",
   },
-]
+];
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
@@ -232,72 +238,80 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     cta: "Kontaktiraj nas",
   },
-]
+];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Nakon instalacije solarnih panela, naši računi za struju su se smanjili za preko 85%. Investicija se isplatila za manje od 7 godina.",
+    quote:
+      "Nakon instalacije solarnih panela, naši računi za struju su se smanjili za preko 85%. Investicija se isplatila za manje od 7 godina.",
     author: "Marko Horvat",
     company: "Vlasnik obiteljske kuće",
     role: "Zagreb",
   },
   {
-    quote: "Profesionalni pristup od početka do kraja. Tim je bio izuzetno stručan i instalacija je prošla bez ikakvih problema.",
+    quote:
+      "Profesionalni pristup od početka do kraja. Tim je bio izuzetno stručan i instalacija je prošla bez ikakvih problema.",
     author: "Ana Marić",
     company: "Vlasnica poslovnog objekta",
     role: "Split",
   },
   {
-    quote: "Najbolja odluka koju smo donijeli za našu tvrtku. Solarni paneli su nam smanjili operativne troškove i pokazali našu predanost održivosti.",
+    quote:
+      "Najbolja odluka koju smo donijeli za našu tvrtku. Solarni paneli su nam smanjili operativne troškove i pokazali našu predanost održivosti.",
     author: "Ivan Kovačević",
     company: "Direktor proizvodnje",
     role: "Rijeka",
   },
-]
+];
 
 export const TRACK_RECORD = {
   years: "10+",
   yearsLabel: "Godina iskustva",
   retention: "95%",
   retentionLabel: "Zadržavanje klijenata",
-}
+};
 
 export const SERVICES = [
   {
     icon: Sun,
     title: "Instalacija solarnih panela",
-    description: "Profesionalna instalacija premium solarnih panela za domove i poslovne objekte",
+    description:
+      "Profesionalna instalacija premium solarnih panela za domove i poslovne objekte",
   },
   {
     icon: Battery,
     title: "Baterijska skladišta",
-    description: "Napredni sustavi za skladištenje energije za maksimalnu neovisnost od mreže",
+    description:
+      "Napredni sustavi za skladištenje energije za maksimalnu neovisnost od mreže",
   },
   {
     icon: Settings,
     title: "Održavanje i podrška",
-    description: "Redovito održavanje, monitoring i tehnička podrška za optimalan rad sustava",
+    description:
+      "Redovito održavanje, monitoring i tehnička podrška za optimalan rad sustava",
   },
-]
+];
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     title: "Kako odabrati pravi solarni sustav za vaš dom",
-    excerpt: "Vodič kroz sve što trebate znati prije odabira solarnog sustava, uključujući veličinu, tip panela i dodatne opcije.",
+    excerpt:
+      "Vodič kroz sve što trebate znati prije odabira solarnog sustava, uključujući veličinu, tip panela i dodatne opcije.",
     date: "15. siječnja 2024.",
     category: "Vodiči",
   },
   {
     title: "5 razloga zašto je sada pravo vrijeme za solarnu energiju",
-    excerpt: "Cijene opreme padaju, subvencije su dostupne, a uštede nikad veće. Saznajte zašto je sada idealno vrijeme za investiciju.",
+    excerpt:
+      "Cijene opreme padaju, subvencije su dostupne, a uštede nikad veće. Saznajte zašto je sada idealno vrijeme za investiciju.",
     date: "8. siječnja 2024.",
     category: "Vijesti",
   },
   {
     title: "Subvencije za solarnu energiju u Hrvatskoj 2024",
-    excerpt: "Kompletan pregled dostupnih subvencija i poticaja za instalaciju solarnih panela u Hrvatskoj.",
+    excerpt:
+      "Kompletan pregled dostupnih subvencija i poticaja za instalaciju solarnih panela u Hrvatskoj.",
     date: "2. siječnja 2024.",
     category: "Subvencije",
   },
-]
-
+];

@@ -1,13 +1,20 @@
-"use client"
+"use client";
 
-import { SectionBadge } from "@/components/shared/section-badge"
-import { Award, Users, Shield, Target, CheckCircle2, Globe } from "lucide-react"
+import { SectionBadge } from "@/components/shared/section-badge";
+import {
+  Award,
+  Users,
+  Shield,
+  Target,
+  CheckCircle2,
+  Globe,
+} from "lucide-react";
 
 const highlights = [
   {
     icon: Globe,
-    value: "300+",
-    label: "Projekata",
+    value: "1-2 dana",
+    label: "Prosječno vrijeme kućnih instalacija",
   },
   {
     icon: Award,
@@ -17,9 +24,9 @@ const highlights = [
   {
     icon: Users,
     value: "24h",
-    label: "Odziv na vaš upit",
+    label: "Odgovor na vaš upit",
   },
-]
+];
 
 const features = [
   { icon: CheckCircle2, text: "Visoka razina preciznosti" },
@@ -28,7 +35,7 @@ const features = [
   { icon: CheckCircle2, text: "Poštivanje dogovorenih rokova" },
   { icon: CheckCircle2, text: "Certifikati za rad na visini" },
   { icon: CheckCircle2, text: "Dugotrajno i sigurno rješenje" },
-]
+];
 
 export const WhyUs = () => {
   return (
@@ -38,8 +45,11 @@ export const WhyUs = () => {
     >
       {/* Pulsing yellow light effect - hidden on mobile */}
       <div className="hidden md:block absolute top-1/2 left-1/3 w-[600px] h-[600px] bg-[#E0BF18] rounded-full blur-3xl opacity-18 animate-pulse-glow" />
-      <div className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-15 animate-pulse-glow" style={{ animationDelay: "2s" }} />
-      
+      <div
+        className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#E0BF18] rounded-full blur-3xl opacity-15 animate-pulse-glow"
+        style={{ animationDelay: "2s" }}
+      />
+
       {/* Large geometric shapes - hidden on mobile */}
       <div className="hidden md:block absolute top-0 right-0 w-64 h-64 border-4 border-[#2371A2]/20 rounded-lg rotate-45 -translate-y-1/2 translate-x-1/2 animate-spin-slow opacity-25" />
       <div className="hidden md:block absolute bottom-0 left-0 w-56 h-56 border-4 border-[#E0BF18]/20 rounded-lg rotate-12 translate-y-1/2 -translate-x-1/2 animate-spin-reverse opacity-20" />
@@ -47,7 +57,7 @@ export const WhyUs = () => {
       {/* Medium floating shapes - hidden on mobile */}
       <div className="hidden md:block absolute top-1/4 right-1/4 w-36 h-36 border-2 border-[#2371A2]/25 rounded-full animate-float-slow opacity-15" />
       <div className="hidden md:block absolute bottom-1/3 left-1/5 w-28 h-28 border-2 border-[#E0BF18]/25 rounded-lg rotate-45 animate-float opacity-20" />
-      
+
       <div className="container px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -59,20 +69,35 @@ export const WhyUs = () => {
 
         {/* Main content grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto items-center">
-          
           {/* Left side - Text content */}
           <div className="space-y-6">
             <div className="relative">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-[#E0BF18] via-[#2371A2] to-transparent rounded-full" />
               <div className="pl-6 space-y-6">
                 <p className="text-lg text-[#FFFFFC]/90 leading-relaxed">
-                  <span className="text-[#E0BF18] font-semibold">Skeki Energy d.o.o.</span> je tvrtka specijalizirana za montažu solarnih elektrana, s naglaskom na kvalitetu izvedbe, pouzdanost i profesionalan pristup svakom projektu.
+                  <span className="text-[#E0BF18] font-semibold">
+                    Skeki Energy d.o.o.
+                  </span>{" "}
+                  je tvrtka specijalizirana za montažu solarnih elektrana, s
+                  naglaskom na kvalitetu izvedbe, pouzdanost i profesionalan
+                  pristup svakom projektu.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
-                  Posebno se ističe iskustvo rada u Njemačkoj s tvrtkom <a href="https://www.enpal.de/" target="_blank" rel="noopener noreferrer" className="text-[#2371A2] font-medium hover:text-[#2371A2]/80 transition-colors">Enpal GmbH</a>, gdje smo sudjelovali u realizaciji više od 300 fotonaponskih sustava na stambenim objektima.
+                  Posebno se ističe iskustvo rada u Njemačkoj s tvrtkom{" "}
+                  <a
+                    href="https://www.enpal.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#2371A2] font-medium hover:text-[#2371A2]/80 transition-colors"
+                  >
+                    Enpal GmbH
+                  </a>
+                  , gdje smo sudjelovali u realizaciji više od 300 fotonaponskih
+                  sustava na stambenim objektima.
                 </p>
                 <p className="text-[#FFFFFC]/70 leading-relaxed">
-                  Posjedujemo sve potrebne certifikate, obuke i sigurnosne dozvole, uključujući rad na visini.
+                  Posjedujemo sve potrebne certifikate, obuke i sigurnosne
+                  dozvole, uključujući rad na visini.
                 </p>
               </div>
             </div>
@@ -80,10 +105,7 @@ export const WhyUs = () => {
             {/* Feature list */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
               {features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center gap-3 group"
-                >
+                <div key={index} className="flex items-center gap-3 group">
                   <div className="h-6 w-6 rounded-full bg-[#E0BF18]/20 flex items-center justify-center group-hover:bg-[#E0BF18]/30 transition-colors duration-300">
                     <feature.icon className="h-4 w-4 text-[#E0BF18]" />
                   </div>
@@ -98,13 +120,10 @@ export const WhyUs = () => {
           {/* Right side - Highlight cards */}
           <div className="space-y-4">
             {highlights.map((highlight, index) => (
-              <div 
-                key={index}
-                className="group relative"
-              >
+              <div key={index} className="group relative">
                 {/* Glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#2371A2]/0 via-[#2371A2]/10 to-[#E0BF18]/0 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                
+
                 <div className="relative flex items-center gap-6 p-6 rounded-xl bg-[#020202]/80 border-2 border-[#FFFFFC]/10 hover:border-[#2371A2]/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2371A2]/10">
                   {/* Icon */}
                   <div className="relative">
@@ -113,7 +132,7 @@ export const WhyUs = () => {
                       <highlight.icon className="h-8 w-8 text-[#2371A2] group-hover:text-[#E0BF18] transition-colors duration-500" />
                     </div>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="flex-1">
                     <div className="flex items-baseline gap-2 flex-wrap">
@@ -138,9 +157,12 @@ export const WhyUs = () => {
                     <Target className="h-6 w-6 text-[#E0BF18]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-[#FFFFFC] mb-2">Naš fokus</h3>
+                    <h3 className="text-lg font-semibold text-[#FFFFFC] mb-2">
+                      Naš fokus
+                    </h3>
                     <p className="text-[#FFFFFC]/70 text-sm leading-relaxed">
-                      Pružanje dugotrajnog, sigurnog i učinkovitog rješenja prilagođenog potrebama svakog klijenta.
+                      Pružanje dugotrajnog, sigurnog i učinkovitog rješenja
+                      prilagođenog potrebama svakog klijenta.
                     </p>
                   </div>
                 </div>
@@ -150,6 +172,5 @@ export const WhyUs = () => {
         </div>
       </div>
     </section>
-  )
-}
-
+  );
+};
